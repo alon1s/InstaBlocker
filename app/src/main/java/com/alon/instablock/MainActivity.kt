@@ -20,6 +20,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kotlinx.coroutines.delay
 
 private val CardBackground = Color(0xFF1C1C1E)
 private val ScreenBackground = Color(0xFF0A0A0B)
@@ -59,6 +60,12 @@ fun SettingsScreen() {
         }
 
         Spacer(modifier = Modifier.height(24.dp))
+        SectionCard("Today") { TodayUsageCard() }
+
+        Spacer(modifier = Modifier.height(16.dp))
+        SectionCard("What the app sees") { DetectionCard() }
+
+        Spacer(modifier = Modifier.height(16.dp))
         SectionCard("Intent Check") { IntentCheckRow() }
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -265,5 +272,59 @@ fun GrayscaleRow() {
             enabled = it
             PrefsManager.setGrayscaleEnabled(context, it)
         })
+    }
+}
+
+/** Re-reads every 2 seconds so the numbers stay current while the screen is open. */
+@Composable
+private fun rememberRefreshTick(): Int {
+    var tick by remember { mutableStateOf(0) }
+    LaunchedEffect(Unit) {
+        while (true) {
+            delay(2000)
+            tick++
+        }
+    }
+    return tick
+}
+
+@Composable
+fun TodayUsageCard() {
+    val context = LocalContext.current
+    val tick = rememberRefreshTick()
+    key(tick) {
+        Column {
+            BlockTarget.values().forEach { t ->
+                val seconds = UsageTracker.liveSecondsUsedToday(context, t)
+                val swipes = UsageTracker.swipesUsedToday(context, t)
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 3.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Text(t.label, color = Color.White, fontSize = 14.sp)
+                    Text(
+                        "%d:%02d  ·  %d swipes".format(seconds / 60, seconds % 60, swipes),
+                        color = Color.LightGray,
+                        fontSize = 14.sp
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun DetectionCard() {
+    val context = LocalContext.current
+    val tick = rememberRefreshTick()
+    key(tick) {
+        val debug = PrefsManager.lastDetectionDebug(context)
+        Text(
+            debug.ifEmpty { "Open Instagram and switch tabs - what the app detects shows up here." },
+            color = Color.LightGray,
+            fontSize = 12.sp
+        )
     }
 }

@@ -119,4 +119,12 @@ object PrefsManager {
     fun setGrayscaleEnabled(context: Context, value: Boolean) {
         prefs(context).edit().putBoolean("grayscale_enabled", value).apply()
     }
+
+    // --- Detection diagnostics (what the service last saw; shown in the app) ---
+    fun lastDetectionDebug(context: Context): String =
+        prefs(context).getString("last_detection_debug", "") ?: ""
+
+    fun setLastDetectionDebug(context: Context, value: String) {
+        prefs(context).edit().putString("last_detection_debug", value).apply()
+    }
 }

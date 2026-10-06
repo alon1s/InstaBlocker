@@ -1,0 +1,8 @@
+# UI dumps (may contain personal Instagram content)
+window_dump.xml
+*.uix
+
+# Signing
+*.jks
+*.keystore
+keystore.properties
