@@ -1,0 +1,156 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.alon.instablock"
+4    android:versionCode="1"
+5    android:versionName="0.1" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+9        android:targetSdkVersion="34" />
+10
+11    <!--
+12        נדרשת כדי להפעיל/לכבות grayscale גלובלי. אי אפשר לבקש אותה
+13        ב-runtime - חייבים להעניק אותה פעם אחת דרך adb (ראה README).
+14    -->
+15    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
+15-->C:\Projects\InstaBlock3.0\InstaBlock\app\src\main\AndroidManifest.xml:9:5-11:47
+15-->C:\Projects\InstaBlock3.0\InstaBlock\app\src\main\AndroidManifest.xml:10:9-64
+16
+17    <permission
+17-->[androidx.core:core:1.13.1] C:\Users\alon\.gradle\caches\9.5.0\transforms\fc73ce2508edcac3fa5fffaab88305dd\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
+18        android:name="com.alon.instablock.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+18-->[androidx.core:core:1.13.1] C:\Users\alon\.gradle\caches\9.5.0\transforms\fc73ce2508edcac3fa5fffaab88305dd\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
+19        android:protectionLevel="signature" />
+19-->[androidx.core:core:1.13.1] C:\Users\alon\.gradle\caches\9.5.0\transforms\fc73ce2508edcac3fa5fffaab88305dd\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
+20
+21    <uses-permission android:name="com.alon.instablock.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+21-->[androidx.core:core:1.13.1] C:\Users\alon\.gradle\caches\9.5.0\transforms\fc73ce2508edcac3fa5fffaab88305dd\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
+21-->[androidx.core:core:1.13.1] C:\Users\alon\.gradle\caches\9.5.0\transforms\fc73ce2508edcac3fa5fffaab88305dd\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
+22
+23    <application
+23-->C:\Projects\InstaBlock3.0\InstaBlock\app\src\main\AndroidManifest.xml:13:5-43:19
+24        android:allowBackup="true"
+24-->C:\Projects\InstaBlock3.0\InstaBlock\app\src\main\AndroidManifest.xml:14:9-35
+25        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+25-->[androidx.core:core:1.13.1] C:\Users\alon\.gradle\caches\9.5.0\transforms\fc73ce2508edcac3fa5fffaab88305dd\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
+26        android:debuggable="true"
+27        android:extractNativeLibs="false"
+28        android:label="@string/app_name"
+28-->C:\Projects\InstaBlock3.0\InstaBlock\app\src\main\AndroidManifest.xml:15:9-41
+29        android:supportsRtl="true"
+29-->C:\Projects\InstaBlock3.0\InstaBlock\app\src\main\AndroidManifest.xml:16:9-35
+30        android:testOnly="true" >
+31        <activity
+31-->C:\Projects\InstaBlock3.0\InstaBlock\app\src\main\AndroidManifest.xml:18:9-25:20
+32            android:name="com.alon.instablock.MainActivity"
+32-->C:\Projects\InstaBlock3.0\InstaBlock\app\src\main\AndroidManifest.xml:19:13-41
+33            android:exported="true" >
+33-->C:\Projects\InstaBlock3.0\InstaBlock\app\src\main\AndroidManifest.xml:20:13-36
+34            <intent-filter>
+34-->C:\Projects\InstaBlock3.0\InstaBlock\app\src\main\AndroidManifest.xml:21:13-24:29
+35                <action android:name="android.intent.action.MAIN" />
+35-->C:\Projects\InstaBlock3.0\InstaBlock\app\src\main\AndroidManifest.xml:22:17-69
+35-->C:\Projects\InstaBlock3.0\InstaBlock\app\src\main\AndroidManifest.xml:22:25-66
+36
+37                <category android:name="android.intent.category.LAUNCHER" />
+37-->C:\Projects\InstaBlock3.0\InstaBlock\app\src\main\AndroidManifest.xml:23:17-77
+37-->C:\Projects\InstaBlock3.0\InstaBlock\app\src\main\AndroidManifest.xml:23:27-74
+38            </intent-filter>
+39        </activity>
+40
+41        <!--
+42            שירות שרץ ברקע ו"רואה" את מבנה המסך של אפליקציות אחרות.
+43            המשתמש חייב להפעיל אותו ידנית ב-Settings > Accessibility
+44            (אי אפשר לבקש את ההרשאה הזו אוטומטית מקוד).
+45        -->
+46        <service
+46-->C:\Projects\InstaBlock3.0\InstaBlock\app\src\main\AndroidManifest.xml:32:9-42:19
+47            android:name="com.alon.instablock.BlockerAccessibilityService"
+47-->C:\Projects\InstaBlock3.0\InstaBlock\app\src\main\AndroidManifest.xml:33:13-56
+48            android:exported="false"
+48-->C:\Projects\InstaBlock3.0\InstaBlock\app\src\main\AndroidManifest.xml:35:13-37
+49            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
+49-->C:\Projects\InstaBlock3.0\InstaBlock\app\src\main\AndroidManifest.xml:34:13-79
+50            <intent-filter>
+50-->C:\Projects\InstaBlock3.0\InstaBlock\app\src\main\AndroidManifest.xml:36:13-38:29
+51                <action android:name="android.accessibilityservice.AccessibilityService" />
+51-->C:\Projects\InstaBlock3.0\InstaBlock\app\src\main\AndroidManifest.xml:37:17-92
+51-->C:\Projects\InstaBlock3.0\InstaBlock\app\src\main\AndroidManifest.xml:37:25-89
+52            </intent-filter>
+53
+54            <meta-data
+54-->C:\Projects\InstaBlock3.0\InstaBlock\app\src\main\AndroidManifest.xml:39:13-41:72
+55                android:name="android.accessibilityservice"
+55-->C:\Projects\InstaBlock3.0\InstaBlock\app\src\main\AndroidManifest.xml:40:17-60
+56                android:resource="@xml/accessibility_service_config" />
+56-->C:\Projects\InstaBlock3.0\InstaBlock\app\src\main\AndroidManifest.xml:41:17-69
+57        </service>
+58
+59        <provider
+59-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alon\.gradle\caches\9.5.0\transforms\059631537786bd5d0eab504f616d2957\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+60            android:name="androidx.startup.InitializationProvider"
+60-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alon\.gradle\caches\9.5.0\transforms\059631537786bd5d0eab504f616d2957\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:25:13-67
+61            android:authorities="com.alon.instablock.androidx-startup"
+61-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alon\.gradle\caches\9.5.0\transforms\059631537786bd5d0eab504f616d2957\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:26:13-68
+62            android:exported="false" >
+62-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alon\.gradle\caches\9.5.0\transforms\059631537786bd5d0eab504f616d2957\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:27:13-37
+63            <meta-data
+63-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alon\.gradle\caches\9.5.0\transforms\059631537786bd5d0eab504f616d2957\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+64                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+64-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alon\.gradle\caches\9.5.0\transforms\059631537786bd5d0eab504f616d2957\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:30:17-75
+65                android:value="androidx.startup" />
+65-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alon\.gradle\caches\9.5.0\transforms\059631537786bd5d0eab504f616d2957\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:31:17-49
+66            <meta-data
+66-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\alon\.gradle\caches\9.5.0\transforms\31327cac58a63e10b497ac0be2c10ab5\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
+67                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+67-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\alon\.gradle\caches\9.5.0\transforms\31327cac58a63e10b497ac0be2c10ab5\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
+68                android:value="androidx.startup" />
+68-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\alon\.gradle\caches\9.5.0\transforms\31327cac58a63e10b497ac0be2c10ab5\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
+69            <meta-data
+69-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alon\.gradle\caches\9.5.0\transforms\47d63a81366fba49e44a96b693a081f9\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+70                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+70-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alon\.gradle\caches\9.5.0\transforms\47d63a81366fba49e44a96b693a081f9\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+71                android:value="androidx.startup" />
+71-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alon\.gradle\caches\9.5.0\transforms\47d63a81366fba49e44a96b693a081f9\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+72        </provider>
+73
+74        <receiver
+74-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alon\.gradle\caches\9.5.0\transforms\47d63a81366fba49e44a96b693a081f9\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+75            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+75-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alon\.gradle\caches\9.5.0\transforms\47d63a81366fba49e44a96b693a081f9\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+76            android:directBootAware="false"
+76-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alon\.gradle\caches\9.5.0\transforms\47d63a81366fba49e44a96b693a081f9\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+77            android:enabled="true"
+77-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alon\.gradle\caches\9.5.0\transforms\47d63a81366fba49e44a96b693a081f9\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+78            android:exported="true"
+78-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alon\.gradle\caches\9.5.0\transforms\47d63a81366fba49e44a96b693a081f9\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+79            android:permission="android.permission.DUMP" >
+79-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alon\.gradle\caches\9.5.0\transforms\47d63a81366fba49e44a96b693a081f9\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+80            <intent-filter>
+80-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alon\.gradle\caches\9.5.0\transforms\47d63a81366fba49e44a96b693a081f9\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+81                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+81-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alon\.gradle\caches\9.5.0\transforms\47d63a81366fba49e44a96b693a081f9\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+81-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alon\.gradle\caches\9.5.0\transforms\47d63a81366fba49e44a96b693a081f9\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+82            </intent-filter>
+83            <intent-filter>
+83-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alon\.gradle\caches\9.5.0\transforms\47d63a81366fba49e44a96b693a081f9\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+84                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+84-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alon\.gradle\caches\9.5.0\transforms\47d63a81366fba49e44a96b693a081f9\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+84-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alon\.gradle\caches\9.5.0\transforms\47d63a81366fba49e44a96b693a081f9\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+85            </intent-filter>
+86            <intent-filter>
+86-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alon\.gradle\caches\9.5.0\transforms\47d63a81366fba49e44a96b693a081f9\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+87                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+87-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alon\.gradle\caches\9.5.0\transforms\47d63a81366fba49e44a96b693a081f9\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+87-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alon\.gradle\caches\9.5.0\transforms\47d63a81366fba49e44a96b693a081f9\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+88            </intent-filter>
+89            <intent-filter>
+89-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alon\.gradle\caches\9.5.0\transforms\47d63a81366fba49e44a96b693a081f9\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+90                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+90-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alon\.gradle\caches\9.5.0\transforms\47d63a81366fba49e44a96b693a081f9\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+90-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alon\.gradle\caches\9.5.0\transforms\47d63a81366fba49e44a96b693a081f9\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+91            </intent-filter>
+92        </receiver>
+93    </application>
+94
+95</manifest>

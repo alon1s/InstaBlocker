@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accessibility_service_description">
+        Used to detect when you\'re on the Reels or Explore tab in Instagram, for self-blocking purposes.
+    </string>
+    <string name="app_name">InstaBlock</string>
+</resources>
